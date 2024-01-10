@@ -35,45 +35,10 @@ const getAllVideogames = async () => {
 // Get by ID
 
 const getVideogamesByID = async (id, source) => {
-    const response = source === "api" ? await axios.get(`${URL}/games?key=${API_KEY}/${id}`)
-        : await Videogame.findByPk(id);
-    if (source === "api") {
-        const { id, name, description, released, platforms, background_image, rating, genres } = response.data.results;
-        const platformsName = platforms.map(data => data.plataform.name);
-        const genresName = genres.map(data => data.name);
-        return {
-            id,
-            name,
-            description,
-            released,
-            platformsName,
-            background_image,
-            rating,
-            genresName
-        };
-    } else {
-        return response;
-    }
-
-    // const res = (await axios.get(`${URL}/games?key=${API_KEY}/${id}`)).data.results;
-    // return {
-    //     id: res.id,
-    //     name: res.name,
-    //     description: res.description,
-    //     plataform: res.plataforms.map((data) => {
-    //         return {
-    //             name: data.plataform.name,
-    //         };
-    //     }),
-    //     image: res.background_image,
-    //     released: res.released,
-    //     rating: res.rating,
-    //     genres: res.genres.map((g) => {
-    //         return {
-    //             name: g.genres.name,
-    //         };
-    //     }),
-    // };
+    const res = source === "api" ? (await axios.get(`${URL}/games/${id}?key=${API_KEY}`)).data
+    : await Videogame.findByPk(id);
+    return res;
+    
 
 };
 
