@@ -34,11 +34,30 @@ const getAllVideogames = async () => {
 
 // Get by ID
 
-const getVideogamesByID = async (id, source) => {
-    const res = source === "api" ? (await axios.get(`${URL}/games/${id}?key=${API_KEY}`)).data
-    : await Videogame.findByPk(id);
-    return res;
-    
+const getVideogamesByID = async (id) => {
+    if (isNaN(id)) {
+        const response = await Videogame.findOne({ where: { id } });
+        return response;
+    };
+   
+    try {
+        const {data} = await axios.get(`${URL}/games/${id}?key=${API_KEY}`)
+        const game = {
+            id: data.id,
+            name: data.name,
+            description: data.description,
+            platform: data.platforms.map(data => data.platform.name),
+            image: data.background_image,
+            released: data.released,
+            rating: data.rating,
+            genres: data.genres.map(data => data.name),
+        }
+        return game;
+    } catch (error) {
+        return null;
+    }
+   
+
 
 };
 

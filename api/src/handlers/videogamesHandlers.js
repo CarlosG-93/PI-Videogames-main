@@ -4,21 +4,21 @@ const { getAllVideogames, getVideogamesByID, getVideogamesByName, createVideogam
 
 const getVideogamesHandlers = async (req, res) => {
     const { name } = req.query;
-    const result = name ? await getVideogamesByName(name) : await getAllVideogames(); 
+    const result = name ? await getVideogamesByName(name) : await getAllVideogames();
 
     res.send(result);
 };
 
 // Handler By Id
 
-const getDetailHandlers = async (req, res) =>{
+const getDetailHandlers = async (req, res) => {
     const { id } = req.params;
-    const source = isNaN(id)?"db":"api";
+    const source = isNaN(id) ? "db" : "api";
     try {
         const videogames = await getVideogamesByID(id, source);
         res.status(200).json(videogames);
     } catch (error) {
-        res.status(400).json({error: error.message});        
+        res.status(400).json({ error: error.message });
     }
 };
 
@@ -27,11 +27,11 @@ const getDetailHandlers = async (req, res) =>{
 const postVideogamesHandlers = async (req, res) => {
     const { name, description, plataforms, image, released, rating, genres } = req.body;
     try {
-        if(!name || ! description || !plataforms || ! image || !released || !rating || !genres) throw Error("Missing data");
+        if (!name || !description || !plataforms || !image || !released || !rating || !genres) throw Error("Missing data");
         const newVideogames = await createVideogames(name, description, plataforms, image, released, rating, genres);
         res.status(201).json(newVideogames)
     } catch (error) {
-        res.status(400).json({error: error.message});
+        res.status(400).json({ error: error.message });
     }
 };
 
