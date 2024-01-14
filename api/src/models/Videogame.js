@@ -14,20 +14,20 @@ module.exports = (sequelize) => {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    descripción: {
+    description: {
       type: DataTypes.STRING,
       allowNull: false
     },
-    plataformas: {
+    platforms: {
       type: DataTypes.STRING,
       allowNull: false
     },
-    Imagen: {
+    image: {
       type: DataTypes.TEXT,
       allowNull: false,
       isUrl: true
     },
-    lanzamiento: {
+    released: {
       type: DataTypes.STRING,
       allowNull: false,
       isDate: true
@@ -35,6 +35,10 @@ module.exports = (sequelize) => {
     rating: {
       type: DataTypes.FLOAT,
       allowNull: false,
+    },
+    genre: {
+      type: DataTypes.INTEGER,
+      allowNull: false
     },
   },
     {

@@ -25,10 +25,10 @@ const getDetailHandlers = async (req, res) => {
 // Handler Post
 
 const postVideogamesHandlers = async (req, res) => {
-    const { name, description, plataforms, image, released, rating, genres } = req.body;
+    const { name, description, platforms, image, released, rating, genre } = req.body;
     try {
-        if (!name || !description || !plataforms || !image || !released || !rating || !genres) throw Error("Missing data");
-        const newVideogames = await createVideogames(name, description, plataforms, image, released, rating, genres);
+        if (!name || !description || !platforms || !image || !released || !rating || !genre) throw Error("Missing data");
+        const newVideogames = await createVideogames(name, description, platforms, image, released, rating, genre);
         res.status(201).json(newVideogames)
     } catch (error) {
         res.status(400).json({ error: error.message });

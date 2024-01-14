@@ -85,15 +85,15 @@ const getVideogamesByName = async (name) => {
 
 //Post videogame
 
-const createVideogames = async (name, description, plataforms, image, released, rating, genres) => {
+const createVideogames = async (name, description, platforms, image, released, rating, genre) => {
     return await Videogame.create({
         name,
         description,
-        plataforms,
+        platforms,
         image,
         released,
         rating,
-        genres
+        genre
     });
 };
 
