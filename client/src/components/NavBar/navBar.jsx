@@ -15,6 +15,8 @@ const NavBar = () => {
                 <Link to={"/create"}>
                     <button className= {style.button} >Create Videogame</button>
                 </Link>
+
+                <button>A-Z</button>
             </div>
 
         </div>

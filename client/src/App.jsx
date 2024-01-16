@@ -12,12 +12,12 @@ const App = () => {
 
   return (
     <div>
-      
+      {path !== '/' && <Navbar />}
       <Routes>
-        <Route path='/' element= {<Landing/>} />
-        <Route path='/home' element= {<Home/>} />
-        <Route path='/detail/:id' element= {<Detail/>} />
-        <Route path='/form' element= {<Form/>} />
+        <Route path='/' element={<Landing />} />
+        <Route path='/home' element={<Home />} />
+        <Route path='/detail/:id' element={<Detail />} />
+        <Route path='/form' element={<Form />} />
       </Routes>
 
     </div>
