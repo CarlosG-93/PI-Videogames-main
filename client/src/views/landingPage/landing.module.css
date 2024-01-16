@@ -1,5 +1,7 @@
 .divOpen {
     position: fixed;
+    margin-top: -10px;
+    margin-left: -10px;
     width: 100%;
     height: 100%;
     background-image: url('../../../public/game1.gif');
@@ -9,7 +11,7 @@
 
 .divButton {
     position: fixed;
-    top: 50%;
+    top: 25%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
@@ -18,18 +20,8 @@
     text-decoration: none;
 }
 
-.logo {
-    display:inline-block;
-    transform:translatex(-343px) translatey(-130px);
-    position:relative;
-    top:-103px;
-    left:74px;
-    width:55%;
-}
 
 button{
 position:relative;
- top:-193px;
- left:-352px;
- right:37px;
+
 }

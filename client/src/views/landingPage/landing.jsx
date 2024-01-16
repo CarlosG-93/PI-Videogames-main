@@ -6,7 +6,6 @@ const Landing = () => {
     return (
         <div className={style.divOpen}>
             <div className={style.divButton}>
-                <img className={style.logo} src="../../../public/videogame.png" />
                 <Link className={style.link} to={'/home'}>
                     <button>ENTRAR</button>
                 </Link>
