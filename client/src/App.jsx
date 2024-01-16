@@ -5,6 +5,7 @@ import Home from './views/home/home';
 import Landing from './views/landingPage/landing';
 import Detail from './views/detail/detail';
 import Form from './views/form/form';
+import NavBar from './components/NavBar/navBar';
 
 
 const App = () => {
@@ -12,7 +13,7 @@ const App = () => {
 
   return (
     <div>
-      {path !== '/' && <Navbar />}
+      {path !== '/' && <NavBar />}
       <Routes>
         <Route path='/' element={<Landing />} />
         <Route path='/home' element={<Home />} />
