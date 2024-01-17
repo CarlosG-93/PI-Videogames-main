@@ -12,7 +12,7 @@ const NavBar = () => {
                     <button className= {style.button} >Home</button>
                 </Link>
                 <div></div>
-                <Link to={"/create"}>
+                <Link to={"/form"}>
                     <button className= {style.button} >Create Videogame</button>
                 </Link>
 
